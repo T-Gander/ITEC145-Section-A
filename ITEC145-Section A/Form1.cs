@@ -15,7 +15,7 @@ namespace ITEC145_Section_A
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             lstOutput.Items.Clear();                //Clears listbox before filling it.
-            count = 0;                              //Initializes count variable.
+                                         //Initializes count variable.
 
             for(int i = 0; i < ints.Length; i++)
             {
@@ -23,12 +23,7 @@ namespace ITEC145_Section_A
             }
             
 
-            do
-            {
-                lstOutput.Items.Add(ints.GetValue(count));      //Gets the value of each integer in each location using count variable
-                count++;    //increments count each time do runs
-            } 
-            while (count < ints.Length);     //do iterates until count hits ints array length
+           
         }
 
         private void btnSum_Click(object sender, EventArgs e)
@@ -61,32 +56,45 @@ namespace ITEC145_Section_A
                 {
                     MessageBox.Show("Hi Steve, please stop trying to break my program :(");
                     MessageBox.Show("Just enter values that are within the bounds of my array...");
-                    lstIndex.Items.Clear();
-                    lstValues.Items.Clear();
+                    lstOutput.Items.Clear();
+                    
                 }
                 else
                 {
-                    lstIndex.Items.Clear();
-                    lstValues.Items.Clear();
+                    lstOutput.Items.Clear();
+                    
 
                     for (int i = subscript; i < subscript + numberOfValues; i++)    //loop for index and value listboxes
                     {
-                        lstIndex.Items.Add(i);
-                        lstValues.Items.Add(ints[i]);
+                        lstOutput.Items.Add($"Index "+i+" has a value of " + ints[i]);
+                        
                     }
                 }
             }
             catch
             {
                 MessageBox.Show("Please enter valid integers between 0-29!");
-                lstIndex.Items.Clear();
-                lstValues.Items.Clear();
+                lstOutput.Items.Clear();
+                
             }
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnShowArray_Click(object sender, EventArgs e)
+        {
+            lstOutput.Items.Clear();
+            count = 0;
+
+            do
+            {
+                lstOutput.Items.Add(ints.GetValue(count));      //Gets the value of each integer in each location using count variable
+                count++;    //increments count each time do runs
+            }
+            while (count < ints.Length);     //do iterates until count hits ints array length
         }
     }
 }
