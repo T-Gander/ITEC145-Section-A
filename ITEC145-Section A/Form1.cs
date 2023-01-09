@@ -40,7 +40,7 @@ namespace ITEC145_Section_A
                 sum += i;
             }
             lstOutput.Items.Clear();    //clears listbox
-            lstOutput.Items.Add(sum);   //adds sum variable to listbox
+            lstOutput.Items.Add("The sum of the array is: "+sum);   //adds sum variable to listbox
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -52,12 +52,12 @@ namespace ITEC145_Section_A
         {
             
 
-            try
+            try          //exception handling
             {
-                int subscript = int.Parse(txtStartSubscript.Text);
+                int subscript = int.Parse(txtStartSubscript.Text);  //converts textbox values to a variable
                 int numberOfValues = int.Parse(txtValues.Text);
 
-                if (subscript > 29 || numberOfValues > (30 - subscript))
+                if (subscript > 29 || numberOfValues > (30 - subscript))    //for when Steve tries to break program
                 {
                     MessageBox.Show("Hi Steve, please stop trying to break my program :(");
                     MessageBox.Show("Just enter values that are within the bounds of my array...");
@@ -69,7 +69,7 @@ namespace ITEC145_Section_A
                     lstIndex.Items.Clear();
                     lstValues.Items.Clear();
 
-                    for (int i = subscript; i < subscript + numberOfValues; i++)
+                    for (int i = subscript; i < subscript + numberOfValues; i++)    //loop for index and value listboxes
                     {
                         lstIndex.Items.Add(i);
                         lstValues.Items.Add(ints[i]);
